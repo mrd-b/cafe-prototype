@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brew & Bloom Café | Aesthetic Coffee & Vibes</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="antialiased bg-[#FAF7F2] text-[#2D2D2D] overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav class="w-full py-6 px-6 md:px-12 flex justify-between items-center bg-[#FAF7F2]/80 backdrop-blur-md sticky top-0 z-50">
+        <div class="flex items-center gap-2">
+            <i data-lucide="coffee" class="w-6 h-6 text-[#FF8E8E]"></i>
+            <span class="font-outfit font-bold text-xl tracking-tight">Brew & Bloom</span>
+        </div>
+        
+        <div class="hidden md:flex gap-8 items-center">
+            <a href="#menu" class="font-inter text-sm font-medium hover:text-[#FF8E8E] transition-colors">Menu</a>
+            <a href="#gallery" class="font-inter text-sm font-medium hover:text-[#FF8E8E] transition-colors">Gallery</a>
+            <a href="#about" class="font-inter text-sm font-medium hover:text-[#FF8E8E] transition-colors">About</a>
+        </div>
+
+        <button class="md:hidden" id="mobileMenuBtn" aria-label="Menu">
+            <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobileMenu" class="fixed inset-0 bg-[#FAF7F2] z-40 transform translate-x-full transition-transform duration-300 md:hidden flex flex-col items-center justify-center gap-8">
+        <button id="closeMenuBtn" class="absolute top-6 right-6">
+            <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+        <a href="#menu" class="font-outfit text-2xl font-semibold mobile-link">Menu</a>
+        <a href="#gallery" class="font-outfit text-2xl font-semibold mobile-link">Gallery</a>
+        <a href="#about" class="font-outfit text-2xl font-semibold mobile-link">About</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="px-6 md:px-12 lg:px-24 pt-12 pb-20 md:pt-20 md:pb-32 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-[#FFB8B8]/20 to-[#E2D1F9]/20 rounded-full blur-3xl -z-10 translate-x-1/2 -translate-y-1/2"></div>
+        
+        <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6 reveal-up">
+                <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/60 backdrop-blur rounded-full border border-[#FF8E8E]/20">
+                    <span class="w-2 h-2 bg-[#FF8E8E] rounded-full animate-pulse"></span>
+                    <span class="font-inter text-xs font-medium text-[#FF6B6B]">Now Open • 8AM - 10PM</span>
+                </div>
+                
+                <h1 class="font-outfit font-bold text-5xl md:text-6xl lg:text-7xl leading-[1.1] tracking-tight">
+                    Sip, Savor, <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#FF8E8E] to-[#C084FC]">Snap.</span>
+                </h1>
+                
+                <p class="font-inter text-lg text-[#666] max-w-md leading-relaxed">
+                    Where aesthetic meets flavor. Artisanal brews, viral-worthy bites, and that soft girl ambiance you crave.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                    <a href="#order" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#FF6B6B] text-white font-inter font-medium rounded-2xl hover:bg-[#FF5252] transition-all transform hover:scale-105 shadow-lg shadow-[#FF6B6B]/25">
+                        <i data-lucide="external-link" class="w-4 h-4"></i>
+                        Order on Zomato
+                    </a>
+                    <a href="#menu" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-[#2D2D2D] font-inter font-medium rounded-2xl border border-[#E5E5E5] hover:border-[#FF8E8E] hover:text-[#FF8E8E] transition-all">
+                        View Menu
+                    </a>
+                </div>
+            </div>
+            
+            <div class="relative reveal-up delay-200">
+                <div class="aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl shadow-[#FF8E8E]/10 relative">
+                    <img src="https://static.photos/cafe/640x800/42" alt="Aesthetic latte art" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                </div>
+                
+                <!-- Floating Card -->
+                <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-2xl shadow-xl shadow-black/5 max-w-[200px] hidden md:block">
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 rounded-full bg-[#FFF0F0] flex items-center justify-center">
+                            <i data-lucide="heart" class="w-5 h-5 text-[#FF6B6B]"></i>
+                        </div>
+                        <div>
+                            <p class="font-outfit font-bold text-lg">4.9</p>
+                            <p class="font-inter text-xs text-gray-500">500+ reviews</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Marquee -->
+    <div class="w-full bg-[#2D2D2D] text-white py-4 overflow-hidden">
+        <div class="marquee-container flex gap-8 whitespace-nowrap">
+            <span class="font-outfit font-medium flex items-center gap-2">
+                <i data-lucide="sparkles" class="w-4 h-4 text-[#FFB8B8]"></i> Artisanal Coffee
+            </span>
+            <span class="font-outfit font-medium flex items-center gap-2">
+                <i data-lucide="camera" class="w-4 h-4 text-[#C084FC]"></i> Instagram Worthy
+            </span>
+            <span class="font-outfit font-medium flex items-center gap-2">
+                <i data-lucide="leaf" class="w-4 h-4 text-[#90EE90]"></i> Vegan Options
+            </span>
+            <span class="font-outfit font-medium flex items-center gap-2">
+                <i data-lucide="wifi" class="w-4 h-4 text-[#FFB8B8]"></i> Free WiFi
+            </span>
+            <span class="font-outfit font-medium flex items-center gap-2">
+                <i data-lucide="sparkles" class="w-4 h-4 text-[#FFB8B8]"></i> Artisanal Coffee
+            </span>
+            <span class="font-outfit font-medium flex items-center gap-2">
+                <i data-lucide="camera" class="w-4 h-4 text-[#C084FC]"></i> Instagram Worthy
+            </span>
+            <span class="font-outfit font-medium flex items-center gap-2">
+                <i data-lucide="leaf" class="w-4 h-4 text-[#90EE90]"></i> Vegan Options
+            </span>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="px-6 md:px-12 lg:px-24 py-20 md:py-32">
+        <div class="max-w-4xl mx-auto text-center space-y-6 reveal-up">
+            <span class="font-inter text-sm font-medium text-[#FF8E8E] tracking-wider uppercase">Our Vibe</span>
+            <h2 class="font-outfit font-bold text-4xl md:text-5xl leading-tight">
+                Not your average <br>
+                <span class="text-[#C084FC]">corner café</span>
+            </h2>
+            <p class="font-inter text-lg text-[#666] max-w-2xl mx-auto leading-relaxed">
+                Born from a love of aesthetic moments and bold flavors. We curate every corner for your feed and every sip for your soul. Soft lighting, curated playlists, and that 'main character' energy.
+            </p>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="px-6 md:px-12 lg:px-24 py-20 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 reveal-up">
+                <span class="font-inter text-sm font-medium text-[#FF8E8E] tracking-wider uppercase">The Menu</span>
+                <h2 class="font-outfit font-bold text-4xl md:text-5xl mt-2">Sip in Style</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Menu Item 1 -->
+                <article class="menu-card group bg-[#FAF7F2] rounded-3xl p-4 hover:shadow-xl hover:shadow-[#FF8E8E]/10 transition-all duration-300 reveal-up">
+                    <div class="aspect-square rounded-2xl overflow-hidden mb-4 relative">
+                        <img src="https://static.photos/food/400x400/101" alt="Sakura Latte" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute top-3 right-3 bg-white/90 backdrop-blur px-3 py-1 rounded-full">
+                            <span class="font-outfit font-bold text-[#FF6B6B]">₹280</span>
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <h3 class="font-outfit font-bold text-xl">Sakura Latte</h3>
+                        <p class="font-inter text-sm text-[#666]">Cherry blossom infused milk with espresso, topped with rose petals</p>
+                        <div class="flex items-center gap-2 pt-2">
+                            <span class="px-2 py-1 bg-[#FFE4E1] text-[#FF6B6B] text-xs font-medium rounded-full">Trending</span>
+                            <span class="px-2 py-1 bg-[#F0E6FF] text-[#9333EA] text-xs font-medium rounded-full">Iced</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Menu Item 2 -->
+                <article class="menu-card group bg-[#FAF7F2] rounded-3xl p-4 hover:shadow-xl hover:shadow-[#C084FC]/10 transition-all duration-300 reveal-up delay-100">
+                    <div class="aspect-square rounded-2xl overflow-hidden mb-4 relative">
+                        <img src="https://static.photos/food/400x400/102" alt="Blue Cloud Matcha" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute top-3 right-3 bg-white/90 backdrop-blur px-3 py-1 rounded-full">
+                            <span class="font-outfit font-bold text-[#C084FC]">₹320</span>
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <h3 class="font-outfit font-bold text-xl">Blue Cloud Matcha</h3>
+                        <p class="font-inter text-sm text-[#666]">Butterfly pea foam meets ceremonial grade matcha</p>
+                        <div class="flex items-center gap-2 pt-2">
+                            <span class="px-2 py-1 bg-[#E0F2FE] text-[#0284C7] text-xs font-medium rounded-full">Viral</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Menu Item 3 -->
+                <article class="menu-card group bg-[#FAF7F2] rounded-3xl p-4 hover:shadow-xl hover:shadow-[#90EE90]/10 transition-all duration-300 reveal-up delay-200">
+                    <div class="aspect-square rounded-2xl overflow-hidden mb-4 relative">
+                        <img src="https://static.photos/food/400x400/103" alt="Avocado Rose Toast" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute top-3 right-3 bg-white/90 backdrop-blur px-3 py-1 rounded-full">
+                            <span class="font-outfit font-bold text-[#65A30D]">₹240</span>
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <h3 class="font-outfit font-bold text-xl">Avocado Rose Toast</h3>
+                        <p class="font-inter text-sm text-[#666]">Sourdough, smashed avo, pickled radish, everything bagel spice</p>
+                        <div class="flex items-center gap-2 pt-2">
+                            <span class="px-2 py-1 bg-[#DCFCE7] text-[#16A34A] text-xs font-medium rounded-full">Vegan</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Menu Item 4 -->
+                <article class="menu-card group bg-[#FAF7F2] rounded-3xl p-4 hover:shadow-xl hover:shadow-[#FFB8B8]/10 transition-all duration-300 reveal-up">
+                    <div class="aspect-square rounded-2xl overflow-hidden mb-4 relative">
+                        <img src="https://static.photos/food/400x400/104" alt="Strawberry Dalgona" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute top-3 right-3 bg-white/90 backdrop-blur px-3 py-1 rounded-full">
+                            <span class="font-outfit font-bold text-[#FF8E8E]">₹260</span>
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <h3 class="font-outfit font-bold text-xl">Strawberry Dalgona</h3>
+                        <p class="font-inter text-sm text-[#666]">Whipped strawberry foam over iced oat milk</p>
+                    </div>
+                </article>
+
+                <!-- Menu Item 5 -->
+                <article class="menu-card group bg-[#FAF7F2] rounded-3xl p-4 hover:shadow-xl hover:shadow-[#FCD34D]/10 transition-all duration-300 reveal-up delay-100">
+                    <div class="aspect-square rounded-2xl overflow-hidden mb-4 relative">
+                        <img src="https://static.photos/food/400x400/105" alt="Honeycomb Croffle" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute top-3 right-3 bg-white/90 backdrop-blur px-3 py-1 rounded-full">
+                            <span class="font-outfit font-bold text-[#D97706]">₹220</span>
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <h3 class="font-outfit font-bold text-xl">Honeycomb Croffle</h3>
+                        <p class="font-inter text-sm text-[#666]">Crispy croissant-waffle hybrid with artisanal honey</p>
+                    </div>
+                </article>
+
+                <!-- Menu Item 6 -->
+                <article class="menu-card group bg-[#FAF7F2] rounded-3xl p-4 hover:shadow-xl hover:shadow-[#2D2D2D]/10 transition-all duration-300 reveal-up delay-200">
+                    <div class="aspect-square rounded-2xl overflow-hidden mb-4 relative">
+                        <img src="https://static.photos/food/400x400/106" alt="Charcoal Tonic" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute top-3 right-3 bg-white/90 backdrop-blur px-3 py-1 rounded-full">
+                            <span class="font-outfit font-bold text-[#374151]">₹300</span>
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <h3 class="font-outfit font-bold text-xl">Charcoal Tonic</h3>
+                        <p class="font-inter text-sm text-[#666]">Activated charcoal, elderflower, tonic water, lime</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="px-6 md:px-12 lg:px-24 py-20">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12 reveal-up">
+                <span class="font-inter text-sm font-medium text-[#FF8E8E] tracking-wider uppercase">The Aesthetic</span>
+                <h2 class="font-outfit font-bold text-4xl md:text-5xl mt-2">Worth the Feed</h2>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[200px]">
+                <div class="col-span-2 row-span-2 rounded-3xl overflow-hidden relative group reveal-up">
+                    <img src="https://static.photos/cafe/800x800/201" alt="Cafe interior" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                </div>
+                
+                <div class="rounded-3xl overflow-hidden relative group reveal-up delay-100">
+                    <img src="https://static.photos/coffee/400x400/202" alt="Coffee art" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                </div>
+                
+                <div class="rounded-3xl overflow-hidden relative group reveal-up delay-200">
+                    <img src="https://static.photos/food/400x400/203" alt="Pastry" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                </div>
+                
+                <div class="col-span-2 rounded-3xl overflow-hidden relative group reveal-up delay-300">
+                    <img src="https://static.photos/workspace/800x400/204" alt="Work space" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                </div>
+                
+                <div class="rounded-3xl overflow-hidden relative group reveal-up">
+                    <img src="https://static.photos/people/400x400/205" alt="Friends at cafe" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                </div>
+                
+                <div class="rounded-3xl overflow-hidden relative group reveal-up delay-100">
+                    <img src="https://static.photos/cafe/400x400/206" alt="Details" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="order" class="px-6 md:px-12 lg:px-24 py-20">
+        <div class="max-w-4xl mx-auto">
+            <div class="bg-gradient-to-br from-[#FF8E8E] to-[#C084FC] rounded-[3rem] p-8 md:p-16 text-center text-white relative overflow-hidden reveal-up">
+                <div class="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.1%22%3E%3Cpath%20d%3D%22M36%2034v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6%2034v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6%204V0H4v4H0v2h4v4h2V6h4V4H6z%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
+                
+                <div class="relative z-10 space-y-6">
+                    <div class="w-16 h-16 bg-white/20 backdrop-blur rounded-full flex items-center justify-center mx-auto">
+                        <i data-lucide="smartphone" class="w-8 h-8"></i>
+                    </div>
+                    
+                    <h2 class="font-outfit font-bold text-3xl md:text-5xl">Order Now</h2>
+                    <p class="font-inter text-white/90 text-lg max-w-lg mx-auto">
+                        Skip the line. Get your aesthetic fix delivered or ready for pickup. Available on Zomato & Swiggy.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+                        <a href="https://zomato.com" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-[#FF6B6B] font-outfit font-bold rounded-2xl hover:bg-gray-50 transition-all transform hover:scale-105 shadow-lg">
+                            <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+                            Order on Zomato
+                        </a>
+                        <a href="tel:+911234567890" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-transparent border-2 border-white text-white font-outfit font-bold rounded-2xl hover:bg-white/10 transition-all">
+                            <i data-lucide="phone" class="w-5 h-5"></i>
+                            Call to Order
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="px-6 md:px-12 lg:px-24 py-12 bg-[#2D2D2D] text-white">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-4 gap-8">
+            <div class="md:col-span-2 space-y-4">
+                <div class="flex items-center gap-2">
+                    <i data-lucide="coffee" class="w-6 h-6 text-[#FF8E8E]"></i>
+                    <span class="font-outfit font-bold text-xl">Brew & Bloom</span>
+                </div>
+                <p class="font-inter text-gray-400 text-sm max-w-sm">
+                    123 Aesthetic Avenue, Koregaon Park<br>
+                    Pune, Maharashtra 411001
+                </p>
+                <div class="flex gap-4 pt-2">
+                    <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#FF8E8E] transition-colors">
+                        <i data-lucide="instagram" class="w-5 h-5"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#FF8E8E] transition-colors">
+                        <i data-lucide="twitter" class="w-5 h-5"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#FF8E8E] transition-colors">
+                        <i data-lucide="map-pin" class="w-5 h-5"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div>
+                <h4 class="font-outfit font-bold mb-4">Hours</h4>
+                <ul class="font-inter text-sm text-gray-400 space-y-2">
+                    <li>Mon - Fri: 8AM - 10PM</li>
+                    <li>Sat - Sun: 9AM - 11PM</li>
+                    <li class="text-[#FF8E8E]">Happy Hours: 3PM - 6PM</li>
+                </ul>
+            </div>
+            
+            <div>
+                <h4 class="font-outfit font-bold mb-4">Contact</h4>
+                <ul class="font-inter text-sm text-gray-400 space-y-2">
+                    <li>hello@brewandbloom.in</li>
+                    <li>+91 12345 67890</li>
+                    <li class="pt-2">
+                        <button class="text-[#FF8E8E] hover:underline">Reservations</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="max-w-6xl mx-auto mt-12 pt-8 border-t border-white/10 text-center font-inter text-xs text-gray-500">
+            © 2024 Brew & Bloom Café. Made with 💗 for the aesthetic.
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
